@@ -1,0 +1,6 @@
+library(mclust)
+data(wreath)
+wreathBIC <- mclustBIC(wreath)
+wreathBIC <- mclustBIC(wreath, G = 1:20, x = wreathBIC)
+wreathModel <- summary(wreathBIC, data = wreath)
+mclust2Dplot(data = wreath, what = "density", identify = TRUE, parameters = wreathModel$parameters, z = wreathModel$z)
